@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class logincontroller {
+public class LoginController {
 
 
     @FXML

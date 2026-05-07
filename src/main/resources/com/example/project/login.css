@@ -1,25 +1,25 @@
-/* لون خلفية الكارت الأبيض مع ظل خفيف (Drop shadow) */
+
 .login-card {
     -fx-background-color: white;
     -fx-background-radius: 15;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);
 }
 
-/* تنسيق العنوان الرئيسي */
+
 .title-label {
     -fx-font-size: 26px;
     -fx-font-weight: bold;
     -fx-text-fill: #2C3E50;
 }
 
-/* تنسيق العنوان الفرعي */
+
 .subtitle-label {
     -fx-font-size: 14px;
     -fx-text-fill: #7F8C8D;
     -fx-padding: 0 0 15 0;
 }
 
-/* تنسيق مربعات الكتابة (الإيميل والباسوورد) */
+
 .input-field {
     -fx-background-color: #F8F9F9;
     -fx-border-color: #BDC3C7;
@@ -29,13 +29,13 @@
     -fx-font-size: 14px;
 }
 
-/* لما اليوزر يدوس على مربع الكتابة لونه يتغير للأزرق */
+
 .input-field:hover {
     -fx-border-color: #3498DB;
     -fx-background-color: white;
 }
 
-/* زرار الدخول الرئيسي */
+
 .login-button {
     -fx-background-color: #3498DB;
     -fx-text-fill: white;
@@ -46,12 +46,12 @@
     -fx-cursor: hand;
 }
 
-/* لما الماوس ييجي على زرار الدخول لونه يغمق */
+
 .login-button:hover {
     -fx-background-color: #2980B9;
 }
 
-/* زرار إنشاء الحساب الجديد */
+
 .register-button {
     -fx-background-color: transparent;
     -fx-text-fill: #3498DB;

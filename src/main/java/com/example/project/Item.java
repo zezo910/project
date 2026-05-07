@@ -52,7 +52,7 @@ public class Item {
         this.quantity = quantity;
     }
 
-    // دي هتفيدنا وإحنا بنخزن في الـ Files
+
     @Override
     public String toString() {
         return id + "," + name + "," + category + "," + price + "," + quantity;
