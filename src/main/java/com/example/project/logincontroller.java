@@ -25,24 +25,38 @@ public class LoginController {
     public void login(ActionEvent ev){
         String user= textField.getText();
         String password= passwordField.getText();
-        if (user.isEmpty()||password.isEmpty()){
-            label.setText("you should input in fields !");
-            label.setVisible(true);
-            return;
-        }
+
         try{
-        if (user.equals("admin")&&password.equals("123")){
-            openDashboard(ev,"admin.fxml");
-        } else if (user.equals("user")&&password.equals("123")) {
-            openDashboard(ev,"customer.fxml");
+            if (user.isEmpty()||password.isEmpty()){
+               throw new InvalidCredentialsException("Fields can't be empty !");
+
+            }
+            else if (!Validator.IsOnlyLetters(user)){
+                throw new InvalidStringException("user field should be letters only");
+
+            }
+            else if(user.equals("admin")&&password.equals("123")){
+                openDashboard(ev,"admin.fxml");
+            }
+            else if(user.equals("user")&&password.equals("123")){
+                  openDashboard(ev,"customer.fxml");
+            }
+            else {
+                throw new InvalidCredentialsException("Wrong username or password!");
+            }
+
 
         }
-        else {
-            label.setText("invalid inputs !");
-            label.setVisible(true);
+        catch (IOException e){
+            UI.showAlert("not found page",e.getMessage());
         }
-        }catch(IOException e){
-        System.out.println("Error !"+e.getMessage());
+        catch (InvalidCredentialsException e){
+            UI.showAlert("login Error !",e.getMessage());
+            UI.clearFields(textField, passwordField);
+        }
+        catch (InvalidStringException e){
+            UI.showAlert("user Error !",e.getMessage());
+
         }
     }
 
