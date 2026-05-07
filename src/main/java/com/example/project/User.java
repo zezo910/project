@@ -2,9 +2,9 @@ package com.example.project;
 
 public class User {
 
-        private String identifier; // ده ممكن يكون إيميل، رقم موبايل، أو يوزر نيم
-        private String password;   // الباسوورد
-        private String role;       // نوعه: "Admin" ولا "Customer"
+        private String identifier;
+        private String password;
+        private String role;
 
         // Constructor
         public User(String identifier, String password, String role) {

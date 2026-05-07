@@ -17,12 +17,12 @@
             <Label styleClass="title-label" text="Welcome!" />
             <Label styleClass="subtitle-label" text="Smart Supermarket System" />
 
-            <TextField fx:id="usernameField" promptText="Email or Phone Number" styleClass="input-field" />
+            <TextField fx:id="textField" promptText="Email or Phone Number" styleClass="input-field" />
             <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field" />
 
-            <Label fx:id="errorLabel" textFill="#e74c3c" visible="false" />
+            <Label fx:id="label" textFill="#e74c3c" visible="false" />
 
-            <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleLogin" styleClass="login-button" text="Login" />
+            <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#login" styleClass="login-button" text="Login" />
             <Button maxWidth="Infinity" mnemonicParsing="false" styleClass="register-button" text="Don't have an account? Register here" />
          </children>
          <padding>
