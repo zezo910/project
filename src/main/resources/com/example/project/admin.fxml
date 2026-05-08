@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.AdminController">
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.AdminController">
     <left>
         <VBox prefWidth="200.0" spacing="10.0" style="-fx-background-color: #2C3E50;">
             <children>
@@ -36,14 +36,12 @@
             <children>
                 <HBox alignment="CENTER_LEFT" spacing="15.0">
                     <children>
-                        <Label text="Inventory Management" textFill="#2c3e50">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Label>
                         <Region HBox.hgrow="ALWAYS" />
-                        <TextField fx:id="searchField" promptText="Search by Name or ID..." styleClass="input-field" prefWidth="250.0" />
-                        <Button onAction="#handleAddItem" styleClass="login-button" text="+ Add Product" />
+                        <TextField fx:id="searchField" prefWidth="200.0" promptText="Search..." styleClass="input-field" />
+
+                        <Button onAction="#handleEditItem" styleClass="action-button, btn-edit" text="✎ Edit" />
+                        <Button onAction="#handleDeleteItem" styleClass="action-button, btn-delete" text="🗑 Delete" />
+                        <Button onAction="#handleAddItem" styleClass="action-button, btn-add" text="+ Add Product" />
                     </children>
                 </HBox>
 

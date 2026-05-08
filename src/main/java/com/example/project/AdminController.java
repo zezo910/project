@@ -30,7 +30,7 @@ public class AdminController {
 
 
     @FXML
-    private void handleAddItem() {
+    public void handleAddItem() {
         try {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("add_product.fxml"));
             javafx.scene.Parent root = loader.load();
@@ -43,6 +43,12 @@ public class AdminController {
             stage.setScene(new javafx.scene.Scene(root));
 
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            try {
+                javafx.scene.image.Image icon = new javafx.scene.image.Image(getClass().getResourceAsStream("add.png"));
+                stage.getIcons().add(icon);
+            } catch (Exception e) {
+                System.out.println("Logo image not found, proceeding without it.");
+            }
             stage.show();
 
         } catch (IOException e) {
@@ -52,5 +58,24 @@ public class AdminController {
     @FXML
     public void addProductToTable(Item item) {
         inventoryTable.getItems().add(item);
+    }
+
+    public void handleEditItem(){}
+    @FXML
+    private void handleDeleteItem() {
+        Item selectedItem = inventoryTable.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            UI.showAlert("No Selection", "Please select a product from the table to delete.");
+            return;
+        }
+
+        boolean confirmed = UI.showConfirmation("Delete Product",
+                "Are you sure you want to delete: " + selectedItem.getName() + "?","question.png");
+
+        if (confirmed) {
+            inventoryTable.getItems().remove(selectedItem);
+
+            UI.showSuccess("Deleted Successfully", "The product '" + selectedItem.getName() + "' has been removed from the inventory.","success.png","delete.png");        }
     }
 }

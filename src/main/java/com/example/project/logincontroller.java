@@ -66,6 +66,16 @@ public class LoginController {
     private void openDashboard(ActionEvent event, String fxmlFile) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.setTitle("Supermarket Management System");
+
+        try {
+            javafx.scene.image.Image icon = new javafx.scene.image.Image(getClass().getResourceAsStream("icon.png"));
+            stage.getIcons().add(icon);
+        } catch (Exception e) {
+            System.out.println("Logo image not found, proceeding without it.");
+        }
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -50,6 +50,7 @@ public class AddProductController {
             Item item =new Item(id,name,category,price,quantity);
             adminController.addProductToTable(item);
             handleCancel(event);
+            UI.showSuccess("added Successfully", "The product '" + name + "' has been inserted to the inventory.","success.png","add.png");
 
 
         } catch (InvalidCredentialsException e) {
