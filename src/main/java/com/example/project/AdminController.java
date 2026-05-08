@@ -1,5 +1,5 @@
 package com.example.project;
-
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,7 +45,7 @@ public class AdminController {
             stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
             stage.show();
 
-        } catch (java.io.IOException e) {
+        } catch (IOException e) {
             System.out.println("Error loading Add Product screen: " + e.getMessage());
         }
     }
