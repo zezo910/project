@@ -60,8 +60,36 @@ public class AdminController {
         inventoryTable.getItems().add(item);
     }
 
-    public void handleEditItem(){}
     @FXML
+    private void handleEditItem() {
+        Item selectedItem = inventoryTable.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            UI.showAlert("No Selection", "Please select a product from the table to edit.");
+            return;
+        }
+
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("add_product.fxml"));
+            javafx.scene.Parent root = loader.load();
+
+            AddProductController addController = loader.getController();
+
+            addController.setAdminController(this);
+
+            addController.SetItemEdit(selectedItem);
+
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setTitle("Edit Product");
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.show();
+
+        } catch (Exception e) {
+            UI.showAlert("System Error", "Could not load edit screen: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }    @FXML
     private void handleDeleteItem() {
         Item selectedItem = inventoryTable.getSelectionModel().getSelectedItem();
 
@@ -77,5 +105,9 @@ public class AdminController {
             inventoryTable.getItems().remove(selectedItem);
 
             UI.showSuccess("Deleted Successfully", "The product '" + selectedItem.getName() + "' has been removed from the inventory.","success.png","delete.png");        }
+    }
+
+    public  void refreshTable(){
+        inventoryTable.refresh();
     }
 }
