@@ -1,8 +1,14 @@
 package com.example.project;
 import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class AdminController {
 
@@ -109,5 +115,20 @@ public class AdminController {
 
     public  void refreshTable(){
         inventoryTable.refresh();
+    }
+    public  void handlelogout(ActionEvent e)  {
+        try{
+        boolean confirm= UI.showConfirmation("logout","Are you sure you want logout ? ","question.png");
+        javafx.fxml.FXMLLoader Loader= new javafx.fxml.FXMLLoader(getClass().getResource("login.fxml"));
+        javafx.scene.Parent root= Loader.load();
+        Stage stage= (Stage) ((Node) e.getSource()).getScene().getWindow();
+            javafx.scene.Scene scene = new javafx.scene.Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Supermarket Login");
+            stage.show();
+
+    } catch (IOException ee) {
+        UI.showAlert("System Error", "Could not load login screen: " + ee.getMessage());
+    }
     }
 }
